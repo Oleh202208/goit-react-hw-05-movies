@@ -10,7 +10,6 @@ import {
 const MovieInfo = ({ movie }) => {
   const { title, vote_average, overview, poster_path, genres, release_date } =
     movie;
-  const scores = vote_average * 100;
 
   return (
     <MovieContainer>
@@ -19,20 +18,21 @@ const MovieInfo = ({ movie }) => {
         <MovieTitle>
           {title} {release_date}
         </MovieTitle>
-        {vote_average === '0' && (
+        {vote_average && (
           <MovieDescription>
-            <MovieSpan>User Score:</MovieSpan> {scores.toString().slice(0, 2)}%
+            <MovieSpan>User Score: </MovieSpan>
+            {`${Math.round(vote_average * 10)}%`}
           </MovieDescription>
         )}
         {overview && (
           <MovieDescription>
-            <MovieSpan>Overview:</MovieSpan>
+            <MovieSpan>Overview: </MovieSpan>
             {overview}
           </MovieDescription>
         )}
         {genres && (
           <MovieDescription>
-            <MovieSpan>Genres:</MovieSpan>
+            <MovieSpan>Genres: </MovieSpan>
             {genres}
           </MovieDescription>
         )}
@@ -42,12 +42,14 @@ const MovieInfo = ({ movie }) => {
 };
 
 MovieInfo.propTypes = {
-  vote_average: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  poster_path: PropTypes.string.isRequired,
-  genres: PropTypes.string.isRequired,
-  release_date: PropTypes.string.isRequired,
+  movie: PropTypes.shape({
+    vote_average: PropTypes.number,
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    poster_path: PropTypes.string,
+    genres: PropTypes.string,
+    release_date: PropTypes.string,
+  }).isRequired,
 };
 
 export default MovieInfo;

@@ -17,7 +17,6 @@ export const CastItem = styled.li`
     margin: 0 auto;
     padding: 0 0 10px;
     max-width: 100%;
-    height: auto;
   }
   p {
     margin-top: 0.5rem;

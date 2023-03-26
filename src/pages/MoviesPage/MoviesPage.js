@@ -2,7 +2,7 @@ import MovieList from 'components/MovieList/MovieList';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchMovieSearch } from 'servise/fetchAPI';
-import Form from '../../components/Form/Form.js';
+import Form from '../../components/Form/Form';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);

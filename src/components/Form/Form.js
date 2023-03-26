@@ -1,28 +1,22 @@
 import { useForm } from 'react-hook-form';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { SearchContainer } from './Form.styled';
+import { SearchContainer, SearchInput, SearchButton } from './Form.styled';
 
 const Form = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm();
 
   return (
     <SearchContainer>
-      <Form
-        autoComplete="off"
-        onSubmit={handleSubmit(({ query }) => onSubmit(query))}
+      <form
+        onSubmit={handleSubmit(({ query }) => {
+          onSubmit(query);
+        })}
       >
-        <input
+        <SearchInput
           {...register('query')}
-          autoFocus
-          placeholder="Search movie"
-          size={40}
-        ></input>
-        <button type="submit">
-          <span>
-            <AiOutlineSearch width="16px" height="16px" />
-          </span>
-        </button>
-      </Form>
+          placeholder="Search Movies"
+        ></SearchInput>
+        <SearchButton type="submit">Search</SearchButton>
+      </form>
     </SearchContainer>
   );
 };

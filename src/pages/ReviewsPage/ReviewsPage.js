@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieById } from 'servise/fetchAPI';
+import { fetchReviewsById } from 'servise/fetchAPI';
 import {
   ReviewItem,
   ReviewList,
@@ -13,7 +13,7 @@ const ReviewsPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchMovieById(id).then(({ data }) => setReviews(data.results));
+    fetchReviewsById(id).then(({ data }) => setReviews(data.results));
   }, [id]);
 
   return (
@@ -22,7 +22,7 @@ const ReviewsPage = () => {
       <ReviewList>
         {reviews.map(({ author, content }, index) => (
           <ReviewItem key={index}>
-            <ReviewSpan>Author:</ReviewSpan>
+            <ReviewSpan>Author: </ReviewSpan>
             {author}
             <ReviewText>{content}</ReviewText>
           </ReviewItem>

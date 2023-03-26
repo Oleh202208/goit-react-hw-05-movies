@@ -20,15 +20,15 @@ const CastPage = () => {
       <CastList>
         {credits.map(({ character, profile_path, name }, index) => (
           <CastItem key={index}>
-            <img
-              src={
-                profile_path
-                  ? `https://image.tmdb.org/t/p/original/${profile_path}`
-                  : { no_photo }
-              }
-              alt={name}
-              width="150"
-            />
+            {profile_path === null ? (
+              <img src={no_photo} alt={name} width="200px" height="300px" />
+            ) : (
+              <img
+                src={`https://image.tmdb.org/t/p/original/${profile_path}`}
+                alt={name}
+                width="200px"
+              />
+            )}
             {name}
             {character && <p>Character: {character}</p>}
           </CastItem>

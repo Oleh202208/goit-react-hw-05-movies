@@ -18,7 +18,7 @@ export const Nav = styled.nav`
 export const Link = styled(NavLink)`
   display: inline-block;
   padding: 10px 20px;
-  background-color: #f7b75d;
+  background-color: #0b2c6e;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #fff;
   border: none;
@@ -28,7 +28,7 @@ export const Link = styled(NavLink)`
   margin-left: 20px;
   transition: background-color 0.3s ease-in-out;
   &.active {
-    background-color: #f87b07;
+    background-color: #1a31de;
   }
 `;
 
