@@ -30,7 +30,7 @@ const MovieDetails = () => {
           overview,
           poster_path: poster_path
             ? `https://image.tmdb.org/t/p/original/${poster_path}`
-            : { no_image },
+            : no_image,
           genres: genres.map(({ name }) => name).join(', '),
         };
 
